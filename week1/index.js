@@ -12,11 +12,11 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 // task 1
-var list = [1, 2, 3];
+var list = [1, 2, 3, 4, 5];
 list.pop();
 list.push(4);
 list[2] = 5;
-var element = list[1];
+var element = list[2];
 console.log('task 1 output: ', element, list);
 // task 2
 var myTuple = [2, 'haha'];
@@ -24,10 +24,11 @@ myTuple.pop();
 myTuple[1] = 'heihei';
 console.log('task 2 output: ', myTuple);
 // task 3
-console.log('---------------task 3------------------');
+console.log('---------------task 3-----------------');
 var Animal = /** @class */ (function () {
     function Animal() {
-        console.log('创造了一只动物');
+        this.species = 'animal';
+        console.log("\u521B\u9020\u4E86\u4E00\u53EA" + this.species);
     }
     return Animal;
 }());
@@ -37,7 +38,7 @@ var Dog = /** @class */ (function (_super) {
         var _this = _super.call(this) || this;
         _this.name = 'dog';
         _this.nickName = nickName;
-        console.log("\u521B\u9020\u4E86\u4E00\u53EA\u72D7\uFF0C\u5B83\u7684\u540D\u5B57\u53EB\u505A " + _this.nickName);
+        console.log("\u521B\u9020\u4E86\u4E00\u53EA" + _this.name + "\uFF0C\u5B83\u7684\u540D\u5B57\u53EB\u505A " + _this.nickName);
         return _this;
     }
     Dog.prototype.jump = function () {
@@ -54,7 +55,7 @@ var Cat = /** @class */ (function (_super) {
         var _this = _super.call(this) || this;
         _this.name = 'cat';
         _this.nickName = nickName;
-        console.log("\u521B\u9020\u4E86\u4E00\u53EA\u732B\uFF0C\u5B83\u7684\u540D\u5B57\u53EB\u505A " + _this.nickName);
+        console.log("\u521B\u9020\u4E86\u4E00\u53EA" + _this.name + "\uFF0C\u5B83\u7684\u540D\u5B57\u53EB\u505A " + _this.nickName);
         return _this;
     }
     Cat.prototype.jump = function () {
