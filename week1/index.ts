@@ -1,9 +1,9 @@
 // task 1
-const list: number[] = [1, 2, 3]
+const list: number[] = [1, 2, 3, 4, 5]
 list.pop()
 list.push(4)
 list[2] = 5
-const element: number = list[1]
+const element: number = list[2]
 console.log('task 1 output: ', element, list)
 
 // task 2
@@ -16,10 +16,10 @@ console.log('task 2 output: ', myTuple)
 console.log('---------------task 3-----------------')
 
 class Animal {
-  species: 'animal'
+  species: string = 'animal'
 
   constructor() {
-    console.log('创造了一只动物')
+    console.log(`创造了一只${this.species}`)
   }
 }
 
@@ -30,7 +30,7 @@ class Dog extends Animal {
   constructor(nickName: string) {
     super()
     this.nickName = nickName
-    console.log(`创造了一只狗，它的名字叫做 ${this.nickName}`)
+    console.log(`创造了一只${this.name}，它的名字叫做 ${this.nickName}`)
   }
 
   jump() {
@@ -49,7 +49,7 @@ class Cat extends Animal {
   constructor(nickName: string) {
     super()
     this.nickName = nickName
-    console.log(`创造了一只猫，它的名字叫做 ${this.nickName}`)
+    console.log(`创造了一只${this.name}，它的名字叫做 ${this.nickName}`)
   }
 
   jump() {
