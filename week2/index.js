@@ -30,11 +30,28 @@ function animal(_a) {
     var name = _a.name, height = _a.height;
     var newDog = {
         name: "haha",
-        height: 20
+        weight: 20
     };
-    newDog.weight = height ? height * 2 : newDog.height;
+    newDog.weight = height ? height * 2 : newDog.weight;
     newDog.name = name ? name : newDog.name;
     return newDog;
 }
 var mySquare = animal({ name: "xixi" });
-console.log(mySquare);
+var father = {};
+var girl = {};
+father.height = '170cm';
+girl.height = father.height;
+girl.interest = '热爱工作';
+girl.habit = '喜欢吃';
+// task 5
+var Student = /** @class */ (function () {
+    function Student(name, id) {
+        this.work = 'study';
+        this.job = 'student';
+        this.name = name;
+        this.id = id;
+    }
+    return Student;
+}());
+var zhang = new Student('zhang', 222);
+console.log(zhang.id);

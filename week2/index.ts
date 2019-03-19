@@ -42,7 +42,7 @@ interface temp {
   [propName: string]: any;
 }
 
-function animal({name, height}: temp) {
+function animal({name, height}: temp): object {
   let newDog: any = {
     name: "haha",
     weight: 20
@@ -53,3 +53,39 @@ function animal({name, height}: temp) {
 }
 
 var mySquare = animal({ name: "xixi" });
+
+
+// task4
+interface Father {
+	height: string;
+}
+
+interface Girl extends Father {
+  interest: string;
+	habit: string;
+}
+
+let father = <Father>{}
+let girl = <Girl>{}
+father.height = '170cm'
+girl.height = father.height
+girl.interest = '热爱工作'
+girl.habit = '喜欢吃'
+
+// task 5
+class Student {
+	readonly work: string = 'study';
+	protected job: string = 'student';
+	private id: number;
+	public name: string;
+	constructor(name: string, id) {
+		this.name = name
+		this.id = id
+	}
+}
+
+let zhang = new Student('zhang', 222)
+console.log(zhang)
+
+answer = `public 是类中默认使用的变量类型，能在类的内部和外部访问，private只能在类的内部访问，
+					protected在派生类中仍然可以访问，readonly为只读属性，只能访问不能修改`
