@@ -4,15 +4,24 @@
       首页
     </div>
     <div class="page-content">
-      <ul class="tab-list">
-        <li
-          v-for="item in tabList"
-          class="tab-item"
-          :class="{'active': curTab === item.value}"
-          @click="handleToggleTab(item.value)">
-          <span>{{item.name}}</span>
-        </li>
-      </ul>
+      <div class="tab-wrapper">
+        <ul class="tab-list">
+          <li
+            v-for="item in tabList"
+            class="tab-item"
+            :class="{'active': curTab === item.value}"
+            @click="handleToggleTab(item.value)">
+            <span>{{item.name}}</span>
+          </li>
+        </ul>
+      </div>
+      <div class="movie-list-wrapper">
+        <ul class="movie-list">
+          <li class="movie-item" v-for="item in movieList">
+            <movie-item :movieInfo="item"></movie-item>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
@@ -20,6 +29,8 @@
 <script lang="ts">
 import { getMovieList } from '@/api/index.ts'
 import MovieItem from '@/components/MovieItem.vue'
+import { movieItemInterface, movieListInterface } from '@/interface/index.ts'
+
 export default {
   components: {
     MovieItem
@@ -40,17 +51,22 @@ export default {
           name: 'Top250',
           value: 3
         }
-      ]
+      ],
+      movieList: []
     }
   },
-  created() {
-    getMovieList().then(res => {
-      console.log(res)
-    })
+  created(){
+    this.getMovieList()
   },
   methods: {
     handleToggleTab(tabValue) {
       this.curTab = tabValue
+      this.getMovieList()
+    },
+    getMovieList() {
+      getMovieList().then(res => {
+        this.movieList = res
+      })
     }
   }
 }
@@ -60,7 +76,8 @@ export default {
 <style lang='less' scoped>
   .page-container {
     font-size: .24rem;
-
+    font-family: "PingFangSC-Regular";
+    
     .page-header {
       height: .9rem;
       display: flex;
